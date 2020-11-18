@@ -26,7 +26,11 @@ class TestNIDValidator(TestCase):
         birthdate = obj.get_birthdate()
         self.assertEqual(str(birthdate), '1970-10-20')
         self.assertEqual(governate, 'Alexandria')
-        self.assertEqual(gender, 'male')
+        nid_number = '27010200202061'
+        obj = NIDValidator(nid_number)
+        state, message = obj.validate()
+        gender = obj.get_gender()
+        self.assertEqual(gender, 'female')
 
     def test_invalid_month(self):
         """Test Case: Send invalid month in NID number

@@ -1,0 +1,6 @@
+[coverage:run]
+omit =
+   manage.py
+   nid_validator/asgi.py
+   nid_validator/wsgi.py
+   egyptian_validator/apps.py

@@ -109,3 +109,17 @@ class NIDTestAPI(TestCase):
         self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
         response = response.json()
         self.assertEqual(response.get('details'), 'Invalid Governorate code')
+
+    def test_api_invalid_nid_start(self):
+        """Test Case: Send invalid NID number to API.
+        Expected:
+            - Return 400 bad request
+            - Error details
+        """
+        body = {
+            "national_id_number": "07010105602071"
+        }
+        response = self.client.post(self.url, body)
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        response = response.json()
+        self.assertEqual(response.get('national_id_number'), ['Invalid NID! It cannot start with 0'])
