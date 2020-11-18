@@ -16,5 +16,5 @@ def validate_nid(nid):
     return True
 
 class NIDSerializer(serializers.Serializer):
-    national_id_number = serializers.CharField(required=False, validators=[validate_nid])
+    national_id_number = serializers.CharField(required=True, validators=[validate_nid])
 
