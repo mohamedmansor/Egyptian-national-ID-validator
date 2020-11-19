@@ -1,6 +1,7 @@
 # NID Validator
 
 [![codecov](https://codecov.io/gh/mohamedmansor/Egyptian-national-ID-validator/branch/main/graph/badge.svg?token=FB8DUJS8L6)](https://codecov.io/gh/mohamedmansor/Egyptian-national-ID-validator)
+![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
 
 NID validator is a  Django project based API that will validate the National ID number.
