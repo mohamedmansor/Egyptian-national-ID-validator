@@ -1,4 +1,4 @@
-asgiref==3.3.0
+asgiref==3.4.0
 astroid==2.4.2
 autopep8==1.5.4
 backcall==0.2.0
