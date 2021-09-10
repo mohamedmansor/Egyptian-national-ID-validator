@@ -24,7 +24,7 @@ Pygments==2.7.2
 pylint==2.6.0
 pytz==2020.4
 six==1.15.0
-sqlparse==0.4.1
+sqlparse==0.4.2
 toml==0.10.2
 traitlets==5.0.5
 wcwidth==0.2.5
