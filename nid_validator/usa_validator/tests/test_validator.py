@@ -1,21 +1,28 @@
 from django.test import TestCase
 from usa_validator.validator import USANIDValidator
+import factory
+
+class USANIDValidatorFactory(factory.Factory):
+    class Meta:
+        model = USANIDValidator
+
+    nid = factory.Faker('random_number', digits=9, fix_len=True)
 
 class TestUSANIDValidator(TestCase):
     def test_validate(self):
-        validator = USANIDValidator('123456789')
+        validator = USANIDValidatorFactory.create()
         self.assertEqual(validator.validate(), (True, "Valid USA NID"))
 
     def test_get_birthdate(self):
-        validator = USANIDValidator('123456789')
-        self.assertEqual(validator.get_birthdate(), '123456')
+        validator = USANIDValidatorFactory.create()
+        self.assertEqual(validator.get_birthdate(), validator.nid[:6])
 
     def test_get_gender(self):
-        validator = USANIDValidator('123456789')
-        self.assertEqual(validator.get_gender(), 'male')
+        validator = USANIDValidatorFactory.create()
+        self.assertEqual(validator.get_gender(), 'male' if int(validator.nid[6]) % 2 == 1 else 'female')
 
     def test_get_state(self):
-        validator = USANIDValidator('123456789')
-        self.assertEqual(validator.get_state(), '89')
+        validator = USANIDValidatorFactory.create()
+        self.assertEqual(validator.get_state(), validator.nid[-2:])
 
 # Removed unittest.main() as it's not needed with Django's test classes.
