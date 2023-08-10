@@ -9,13 +9,11 @@ class TestUSANIDValidationViewSet(unittest.TestCase):
 
     def test_create(self):
         # Test successful request
-        request = self.factory.post('/api/v1/us_nid/', {'national_id_number': '123456789'})
-        response = self.view(request)
+        response = self.client.post('/api/v1/us_nid/', {'national_id_number': '123456789'})
         self.assertEqual(response.status_code, 200)
 
         # Test unsuccessful request
-        request = self.factory.post('/api/v1/us_nid/', {'national_id_number': '12345678'})
-        response = self.view(request)
+        response = self.client.post('/api/v1/us_nid/', {'national_id_number': '12345678'})
         self.assertEqual(response.status_code, 400)
         
         def test_method_not_allowed(self):
