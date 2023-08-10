@@ -1,8 +1,7 @@
-import unittest
-from django.test import RequestFactory
+from django.test import TestCase, RequestFactory
 from usa_validator.views import USANIDValidationViewSet
 
-class TestUSANIDValidationViewSet(unittest.TestCase):
+class TestUSANIDValidationViewSet(TestCase):
     def setUp(self):
         self.factory = RequestFactory()
         self.view = USANIDValidationViewSet.as_view({'post': 'create'})
@@ -32,5 +31,4 @@ class TestUSANIDValidationViewSet(unittest.TestCase):
         response = self.view(request)
         self.assertEqual(response.status_code, 405)
 
-if __name__ == '__main__':
-    unittest.main()
+# Removed unittest.main() as it's not needed with Django's test classes.
