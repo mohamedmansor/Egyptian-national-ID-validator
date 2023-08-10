@@ -17,6 +17,22 @@ class TestUSANIDValidationViewSet(unittest.TestCase):
         request = self.factory.post('/api/v1/us_nid/', {'national_id_number': '12345678'})
         response = self.view(request)
         self.assertEqual(response.status_code, 400)
+        
+        def test_method_not_allowed(self):
+        # Test DELETE method
+        request = self.factory.delete('/api/v1/us_nid/')
+        response = self.view(request)
+        self.assertEqual(response.status_code, 405)
+        
+        # Test GET method
+        request = self.factory.get('/api/v1/us_nid/')
+        response = self.view(request)
+        self.assertEqual(response.status_code, 405)
+        
+        # Test PUT method
+        request = self.factory.put('/api/v1/us_nid/')
+        response = self.view(request)
+        self.assertEqual(response.status_code, 405)
 
 if __name__ == '__main__':
     unittest.main()
