@@ -1,6 +1,6 @@
 from django.test import TestCase
 from usa_validator.validator import USANIDValidator
-from .factories import USANIDValidatorFactory
+from .factory import USANIDValidatorFactory
 
 class TestUSANIDValidator(TestCase):
     def test_validate(self):
