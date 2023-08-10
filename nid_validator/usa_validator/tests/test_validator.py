@@ -1,12 +1,6 @@
 from django.test import TestCase
 from usa_validator.validator import USANIDValidator
-import factory
-
-class USANIDValidatorFactory(factory.Factory):
-    class Meta:
-        model = USANIDValidator
-
-    nid = factory.Faker('random_number', digits=9, fix_len=True)
+from .factories import USANIDValidatorFactory
 
 class TestUSANIDValidator(TestCase):
     def test_validate(self):
