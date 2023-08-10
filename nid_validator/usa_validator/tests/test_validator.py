@@ -1,7 +1,7 @@
-import unittest
+from django.test import TestCase
 from usa_validator.validator import USANIDValidator
 
-class TestUSANIDValidator(unittest.TestCase):
+class TestUSANIDValidator(TestCase):
     def test_validate(self):
         validator = USANIDValidator('123456789')
         self.assertEqual(validator.validate(), (True, "Valid USA NID"))
@@ -18,5 +18,4 @@ class TestUSANIDValidator(unittest.TestCase):
         validator = USANIDValidator('123456789')
         self.assertEqual(validator.get_state(), '89')
 
-if __name__ == '__main__':
-    unittest.main()
+# Removed unittest.main() as it's not needed with Django's test classes.
