@@ -3,16 +3,15 @@ class USANIDValidator:
         self.nid = nid
 
     def validate(self):
-        # Add code here to validate the NID according to the USA NID rules
-        pass
+        if len(self.nid) != 9 or int(self.nid[0]) == 0:
+            return False, "Invalid USA NID"
+        return True, "Valid USA NID"
 
     def get_birthdate(self):
-        # Add code here to extract the birthdate from the NID
-        pass
+        return self.nid[:6]
 
     def get_gender(self):
-        # Add code here to extract the gender from the NID
-        pass
+        return 'male' if int(self.nid[6]) % 2 == 1 else 'female'
 
     def get_state(self):
-        # Add code here to extract the state from the NID
+        return self.nid[-2:]
