@@ -22,7 +22,8 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/v1/nid/', include('egyptian_validator.urls'))
+    path('api/v1/nid/', include('egyptian_validator.urls')),
+    path('api/v1/us_nid/', include('usa_validator.urls'))
 ]
 
 
